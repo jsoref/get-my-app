@@ -1,0 +1,16 @@
+name: Debug
+on:
+  push:
+
+jobs:
+  debug:
+    name: Debug
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: read
+    runs-on: ubuntu-latest
+    steps:
+    - name: debug
+      run: |
+        curl -v -s -H "Authorization: token $GITHUB_TOKEN" $GITHUB_API_URL/app 2>&1
